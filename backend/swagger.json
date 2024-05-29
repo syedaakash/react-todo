@@ -1,0 +1,141 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "ToDo List API",
+      "description": "API for managing tasks in a ToDo list application"
+    },
+    "basePath": "/",
+    "paths": {
+      "/tasks": {
+        "get": {
+          "summary": "Get all tasks",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Task"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a new task",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/NewTask"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Task created successfully",
+              "schema": {
+                "$ref": "#/definitions/Task"
+              }
+            },
+            "400": {
+              "description": "Bad request"
+            }
+          }
+        }
+      },
+      "/tasks/{id}": {
+        "put": {
+          "summary": "Update a task",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/NewTask"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Task updated successfully",
+              "schema": {
+                "$ref": "#/definitions/Task"
+              }
+            },
+            "400": {
+              "description": "Bad request"
+            }
+          }
+        },
+        "delete": {
+          "summary": "Delete a task",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Task deleted successfully"
+            },
+            "400": {
+              "description": "Bad request"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Task": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "completed": {
+            "type": "boolean"
+          },
+          "createdAt": { 
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": { 
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewTask": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+  

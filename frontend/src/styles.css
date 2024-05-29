@@ -1,0 +1,149 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    background: #f0f0f0;
+}
+
+.bubble {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float 5s infinite;
+    /*z-index: -1;*/
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/*create task box styling*/
+.create-task-box {
+    background: white;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    border-radius: 5px;
+    padding: 40px 30px;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    z-index: 1;
+}
+
+.create-task-box .add-todo-container:focus-within .add-button svg {
+    display: inline-block;
+}
+
+.create-task-box .add-todo-container:focus-within .add-button {
+    width: 56px;
+    height: 56px;
+    margin-left: 5px;
+}
+
+.create-task-box .add-button {
+    flex-shrink: 0;
+    margin: 0;
+    width: 0;
+    min-width: 0;
+    padding: 0;
+    background: #28a745;
+    transition: width 0.5s ease;
+}
+.create-task-box .add-button:hover {
+    background: rgba(40, 167, 69, 0.95);
+}
+.create-task-box .add-button svg {
+    display: none;
+}
+
+
+/*task list box styling*/
+
+.task-list-box ul {
+    padding: 0;
+}
+.task-list-box ul li {
+    margin-top: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.task-list-box ul li:hover {
+    background: rgba(0, 0, 0, 0.08)
+}
+.task-list-box ul li .list-text {
+    font-family: "Helvetica";
+    font-size: 16px;
+    padding: 0 10px;
+    border: none;
+    background: none;
+    width: calc(100% - 122px);
+}
+.task-list-box ul li input:focus-visible {
+    outline: none;
+}
+.task-list-box ul li:hover .MuiListItemSecondaryAction-root{
+    display: block;
+    margin-right: -15px;
+}
+.task-list-box ul li div {
+    padding: 0;
+}
+.task-list-box ul li > div {
+    padding: 0 0 0 14px;
+}
+.task-list-box ul li div:hover,
+.task-list-box ul li div:focus{
+    background: none
+}
+
+.task-list-box ul li .delete-button {
+    border-radius: 0;
+    height: 56px;
+    width: 56px;
+    background: red;
+    color: white;
+}
+
+.task-list-box ul li .delete-button:hover {
+    background: rgba(255, 0, 0, 0.75);
+}
+
+.task-list-box ul li .edit-button {
+    border-radius: 0;
+    height: 56px;
+    width: 56px;
+    background: #007bff;
+    color: white;
+}
+
+.task-list-box ul li .edit-button:hover {
+    background: rgba(0, 123, 255, 0.85);
+}
+
+.task-list-box ul li .save-button {
+    border-radius: 0;
+    height: 56px;
+    width: 56px;
+    background: #28a745;
+    color: white;
+    border: 0 5px 5px 0;
+}
+
+.task-list-box ul li .save-button:hover {
+    background: rgba(40, 167, 69, 0.95);
+}
+
+.task-list-box ul li .MuiListItemSecondaryAction-root {
+    margin-right: -128px;
+    transition: margin-right 0.5s ease-in-out;
+}

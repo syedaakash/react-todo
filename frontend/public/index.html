@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TodoList Application</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script>
+      function createBubbles() {
+        for (let i = 0; i < 50; i++) {
+          createBubble();
+        }
+      }
+
+      function createBubble() {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        const size = Math.random() * 60 + 10; // Random size between 10 and 70
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${Math.random() * window.innerWidth}px`;
+        bubble.style.top = `${Math.random() * window.innerHeight}px`;
+        document.body.appendChild(bubble);
+
+        setTimeout(() => {
+          bubble.remove();
+        }, 5000); // Remove bubble after 5 seconds
+      }
+
+      window.onload = () => {
+        createBubbles();
+        setInterval(createBubble, 1000); // Create a new bubble every second
+      };
+    </script>
+  </body>
+</html>
